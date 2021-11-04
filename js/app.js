@@ -42,3 +42,70 @@ class Persona{
 
     
 }
+
+
+let persona;
+let cont=document.querySelector('#cont');
+
+
+
+function crear(){
+    let name=document.querySelector('#inputName').value;
+    let edad=parseInt(document.querySelector('#inputEdad').value);
+    let dni=document.querySelector('#inputDNI').value;
+    let sexo=document.querySelector('#inputSexo').value;
+    let peso=document.querySelector('#inputPeso').value;
+    let altura=document.querySelector('#inputAltura').value;
+    let anio=parseInt(document.querySelector('#inputAnio').value);
+
+    persona=new Persona(name, edad, dni, sexo, peso, altura, anio);
+    
+    cont.innerHTML+=`<div class=" container mb-5">
+    <button
+      class="btn btn-outline-primary "
+      type="button"
+      id="btnGeneracion"
+      onclick="mostrarGeneracion()"
+    >
+      Mostrar Generacion
+    </button>
+    <button
+      class="btn btn-outline-primary"
+      type="button"
+      id="btnMayor"
+      onclick="esMayorDeEdad()"
+    >
+      ¿Es Mayor de edad?
+    </button>
+    <button
+      class="btn btn-outline-primary"
+      type="button"
+      id="btnDatos"
+      onclick="mostrarDatos()"
+    >
+      Mostrar Datos Cargados
+    </button>
+  </div>`
+}
+
+
+function mostrarGeneracion(){
+    /*alert (persona.mostrarGeneracion());*/
+    cont.innerHTML+=`<div class="alert alert-primary" role="alert"> ${persona.mostrarGeneracion()}</div>`
+}
+
+function esMayorDeEdad(){
+    if(persona.esMayorDeEdad()){
+        //alert ('Es Mayor de edad');
+        cont.innerHTML+=`<div class="alert alert-primary" role="alert">Es Mayor de Edad</div>`
+    }else{
+        //alert('No es mayor de edad');
+        cont.innerHTML+=`<div class="alert alert-primary" role="alert">NO Es Mayor de Edad</div>`
+    }
+
+}
+
+function mostrarDatos(){
+    //alert(persona.mostrarDatos());
+    cont.innerHTML+=`<div class="alert alert-primary" role="alert"> ${persona.mostrarDatos()}</div>`
+}
